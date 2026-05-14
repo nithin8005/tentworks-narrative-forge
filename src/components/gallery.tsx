@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
@@ -15,13 +15,13 @@ const items = [
   { src: g6, alt: "Helicopter over the jungle", className: "aspect-[4/3]" },
 ];
 
-const variants = {
+const variants: Variants = {
   hidden: { opacity: 0, y: 40, scale: 0.96 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const, delay: i * 0.08 },
   }),
 };
 
