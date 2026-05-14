@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Gamepad2, Newspaper, Users } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
+import { Gallery } from "@/components/gallery";
 import { Button } from "@/components/ui/button";
 import heroArt from "@/assets/hero-key-art.jpg";
 import trailerMp4 from "@/videos/trailer.mp4";
@@ -31,6 +32,7 @@ function HomePage() {
       <Hero />
       <Highlights />
       <FeaturedGame />
+      <Gallery />
       <DevlogsTeaser />
       <CtaBand />
     </PageShell>
