@@ -148,7 +148,7 @@ function CtaBand() {
       <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Follow on Steam, join the Discord, and read our devlogs to shape the game alongside us.
+          Follow on , join the Discord, and read our devlogs to shape the game alongside us.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero" size="xl">
