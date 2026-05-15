@@ -90,7 +90,7 @@ function FeaturedGame() {
           </ul>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="steam" size="lg">
-              <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">Wishlist on Steam</a>
+              <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
             </Button>
             <Button asChild variant="ghostBorder" size="lg">
               <Link to="/games">Game details</Link>
@@ -148,11 +148,11 @@ function CtaBand() {
       <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Wishlist on Steam, join the Discord, and follow our devlogs to shape the game alongside us.
+          Follow on Steam, join the Discord, and read our devlogs to shape the game alongside us.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero" size="xl">
-            <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">Wishlist on Steam</a>
+            <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
           </Button>
           <Button asChild variant="discord" size="xl">
             <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Join Discord</a>

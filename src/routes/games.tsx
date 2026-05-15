@@ -50,7 +50,7 @@ function GamesPage() {
             </dl>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild variant="steam" size="lg">
-                <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">Wishlist on Steam</a>
+                <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
               </Button>
               <Button asChild variant="discord" size="lg">
                 <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Join Discord</a>

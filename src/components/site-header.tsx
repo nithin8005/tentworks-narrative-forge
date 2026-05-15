@@ -44,7 +44,7 @@ export function SiteHeader() {
             <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Discord</a>
           </Button>
           <Button asChild variant="hero" size="sm">
-            <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer"></a>
+            <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">Steam</a>
           </Button>
         </div>
 
@@ -77,7 +77,7 @@ export function SiteHeader() {
                 <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Join Discord</a>
               </Button>
               <Button asChild variant="hero">
-                <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">Wishlist on Steam</a>
+                <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">Steam</a>
               </Button>
             </div>
           </nav>
