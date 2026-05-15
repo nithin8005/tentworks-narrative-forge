@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Gamepad2, Newspaper, Users } from "lucide-react";
+import { motion } from "framer-motion";
 import { PageShell } from "@/components/page-shell";
 import { Gallery } from "@/components/gallery";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import heroArt from "@/assets/hero-key-art.jpg";
 import { HeroCarousel } from "@/components/hero-carousel";
 
@@ -52,12 +54,20 @@ function Highlights() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-6 md:grid-cols-3">
-        {items.map((it) => (
-          <div key={it.title} className="group rounded-xl border border-border/60 bg-card/50 p-8 transition-colors hover:border-ember">
+        {items.map((it, i) => (
+          <motion.div
+            key={it.title}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -6 }}
+            className="group rounded-xl border border-border/60 bg-card/50 p-8 transition-colors hover:border-ember"
+          >
             <it.icon className="h-8 w-8 text-primary" />
             <h3 className="mt-6 font-display text-2xl uppercase tracking-wide">{it.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{it.body}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
@@ -68,7 +78,7 @@ function FeaturedGame() {
   return (
     <section className="relative overflow-hidden border-y border-border/60 bg-card/30">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
+        <ScrollReveal>
           <p className="text-xs font-medium uppercase tracking-widest text-primary">Now in development</p>
           <h2 className="mt-3 font-display text-5xl uppercase leading-none tracking-wide sm:text-6xl">
             Becoming <span className="text-gradient-ember">Pablo</span>
@@ -90,8 +100,14 @@ function FeaturedGame() {
               <Link to="/games">Game details</Link>
             </Button>
           </div>
-        </div>
-        <div className="relative">
+        </ScrollReveal>
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, scale: 0.92 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[var(--ember)]/30 to-[var(--blood)]/20 blur-2xl" />
           <img
             src={heroArt}
@@ -101,7 +117,7 @@ function FeaturedGame() {
             loading="lazy"
             className="relative aspect-video w-full rounded-xl border border-border/60 object-cover ring-glow"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -124,12 +140,23 @@ function DevlogsTeaser() {
         </Link>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
-        {posts.map((p) => (
-          <a key={p.title} href={p.href} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-border/60 bg-card/40 p-8 transition-all hover:border-ember hover:bg-card/70">
+        {posts.map((p, i) => (
+          <motion.a
+            key={p.title}
+            href={p.href}
+            target="_blank"
+            rel="noreferrer"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -4 }}
+            className="group block overflow-hidden rounded-xl border border-border/60 bg-card/40 p-8 transition-all hover:border-ember hover:bg-card/70"
+          >
             <p className="text-xs uppercase tracking-widest text-muted-foreground">{p.date}</p>
             <h3 className="mt-3 font-display text-2xl uppercase leading-tight tracking-wide group-hover:text-primary">{p.title}</h3>
             <p className="mt-6 inline-flex items-center text-sm text-primary">Read more <ArrowRight className="ml-1 h-4 w-4" /></p>
-          </a>
+          </motion.a>
         ))}
       </div>
     </section>
@@ -140,18 +167,20 @@ function CtaBand() {
   return (
     <section className="relative overflow-hidden border-t border-border/60 bg-gradient-to-r from-[var(--blood)]/20 via-background to-[var(--ember)]/20">
       <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
-        <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
-        <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Follow , join the Discord, and read our devlogs to shape the game alongside us.
-        </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button asChild variant="hero" size="xl">
-            <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
-          </Button>
-          <Button asChild variant="discord" size="xl">
-            <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Join Discord</a>
-          </Button>
-        </div>
+        <ScrollReveal>
+          <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            Follow , join the Discord, and read our devlogs to shape the game alongside us.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button asChild variant="hero" size="xl">
+              <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
+            </Button>
+            <Button asChild variant="discord" size="xl">
+              <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Join Discord</a>
+            </Button>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
