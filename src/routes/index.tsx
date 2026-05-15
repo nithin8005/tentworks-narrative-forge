@@ -4,7 +4,7 @@ import { PageShell } from "@/components/page-shell";
 import { Gallery } from "@/components/gallery";
 import { Button } from "@/components/ui/button";
 import heroArt from "@/assets/hero-key-art.jpg";
-import trailerMp4 from "@/videos/trailer.mp4";
+import { HeroCarousel } from "@/components/hero-carousel";
 
 const TITLE = "Tentworks Interactive — Story-Driven Strategy Games";
 const DESC = "Independent game studio crafting deep, narrative-rich strategy experiences. Makers of Becoming Pablo.";
@@ -40,13 +40,7 @@ function HomePage() {
 }
 
 function Hero() {
-  return (
-    <section className="relative min-h-[88vh] w-full overflow-hidden bg-black" aria-label="Studio trailer">
-      <video autoPlay loop muted playsInline className="absolute inset-0 h-full w-full object-cover">
-        <source src={trailerMp4} type="video/mp4" />
-      </video>
-    </section>
-  );
+  return <HeroCarousel />;
 }
 
 function Highlights() {
@@ -148,7 +142,7 @@ function CtaBand() {
       <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
         <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
         <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Follow on Steam, join the Discord, and read our devlogs to shape the game alongside us.
+          Follow , join the Discord, and read our devlogs to shape the game alongside us.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button asChild variant="hero" size="xl">
