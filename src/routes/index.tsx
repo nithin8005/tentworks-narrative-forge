@@ -167,18 +167,20 @@ function CtaBand() {
   return (
     <section className="relative overflow-hidden border-t border-border/60 bg-gradient-to-r from-[var(--blood)]/20 via-background to-[var(--ember)]/20">
       <div className="mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 lg:px-8">
-        <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
-        <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-          Follow , join the Discord, and read our devlogs to shape the game alongside us.
-        </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button asChild variant="hero" size="xl">
-            <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
-          </Button>
-          <Button asChild variant="discord" size="xl">
-            <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Join Discord</a>
-          </Button>
-        </div>
+        <ScrollReveal>
+          <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
+          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+            Follow , join the Discord, and read our devlogs to shape the game alongside us.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button asChild variant="hero" size="xl">
+              <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
+            </Button>
+            <Button asChild variant="discord" size="xl">
+              <a href="https://discord.gg/Cj6hXpfCfV" target="_blank" rel="noreferrer">Join Discord</a>
+            </Button>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
