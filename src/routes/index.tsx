@@ -78,7 +78,7 @@ function FeaturedGame() {
   return (
     <section className="relative overflow-hidden border-y border-border/60 bg-card/30">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-24 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <div>
+        <ScrollReveal>
           <p className="text-xs font-medium uppercase tracking-widest text-primary">Now in development</p>
           <h2 className="mt-3 font-display text-5xl uppercase leading-none tracking-wide sm:text-6xl">
             Becoming <span className="text-gradient-ember">Pablo</span>
@@ -100,8 +100,14 @@ function FeaturedGame() {
               <Link to="/games">Game details</Link>
             </Button>
           </div>
-        </div>
-        <div className="relative">
+        </ScrollReveal>
+        <motion.div
+          className="relative"
+          initial={{ opacity: 0, scale: 0.92 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[var(--ember)]/30 to-[var(--blood)]/20 blur-2xl" />
           <img
             src={heroArt}
@@ -111,7 +117,7 @@ function FeaturedGame() {
             loading="lazy"
             className="relative aspect-video w-full rounded-xl border border-border/60 object-cover ring-glow"
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
