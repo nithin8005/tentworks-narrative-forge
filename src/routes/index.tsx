@@ -1,8 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Gamepad2, Newspaper, Users } from "lucide-react";
+import { motion } from "framer-motion";
 import { PageShell } from "@/components/page-shell";
 import { Gallery } from "@/components/gallery";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import heroArt from "@/assets/hero-key-art.jpg";
 import { HeroCarousel } from "@/components/hero-carousel";
 
