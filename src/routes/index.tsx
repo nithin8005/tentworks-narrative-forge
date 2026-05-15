@@ -54,12 +54,20 @@ function Highlights() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <div className="grid gap-6 md:grid-cols-3">
-        {items.map((it) => (
-          <div key={it.title} className="group rounded-xl border border-border/60 bg-card/50 p-8 transition-colors hover:border-ember">
+        {items.map((it, i) => (
+          <motion.div
+            key={it.title}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -6 }}
+            className="group rounded-xl border border-border/60 bg-card/50 p-8 transition-colors hover:border-ember"
+          >
             <it.icon className="h-8 w-8 text-primary" />
             <h3 className="mt-6 font-display text-2xl uppercase tracking-wide">{it.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{it.body}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
