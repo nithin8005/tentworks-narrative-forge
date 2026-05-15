@@ -140,12 +140,23 @@ function DevlogsTeaser() {
         </Link>
       </div>
       <div className="grid gap-6 md:grid-cols-2">
-        {posts.map((p) => (
-          <a key={p.title} href={p.href} target="_blank" rel="noreferrer" className="group block overflow-hidden rounded-xl border border-border/60 bg-card/40 p-8 transition-all hover:border-ember hover:bg-card/70">
+        {posts.map((p, i) => (
+          <motion.a
+            key={p.title}
+            href={p.href}
+            target="_blank"
+            rel="noreferrer"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -4 }}
+            className="group block overflow-hidden rounded-xl border border-border/60 bg-card/40 p-8 transition-all hover:border-ember hover:bg-card/70"
+          >
             <p className="text-xs uppercase tracking-widest text-muted-foreground">{p.date}</p>
             <h3 className="mt-3 font-display text-2xl uppercase leading-tight tracking-wide group-hover:text-primary">{p.title}</h3>
             <p className="mt-6 inline-flex items-center text-sm text-primary">Read more <ArrowRight className="ml-1 h-4 w-4" /></p>
-          </a>
+          </motion.a>
         ))}
       </div>
     </section>
