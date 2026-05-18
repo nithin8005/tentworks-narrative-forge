@@ -180,7 +180,14 @@ export function HeroCarousel() {
       )}
 
       {!playingYoutube && (
-        <div className="absolute inset-0 z-10 flex flex-col justify-end px-4 pb-24 pt-20 sm:px-8 sm:pb-28 lg:px-12">
+        <motion.div
+          className="absolute inset-0 z-10 flex cursor-grab flex-col justify-end px-4 pb-24 pt-20 active:cursor-grabbing sm:px-8 sm:pb-28 lg:px-12"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.18}
+          onDragStart={() => setDragging(true)}
+          onDragEnd={handleDragEnd}
+        >
           <div className="max-w-3xl">
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/70 sm:text-sm">
               {slide.eyebrow}
@@ -219,7 +226,7 @@ export function HeroCarousel() {
                 ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {!playingYoutube && (
