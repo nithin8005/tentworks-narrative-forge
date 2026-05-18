@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Pause, Play } from "lucide-react";
+import { motion, type PanInfo } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import heroArt from "@/assets/becoming_pablo.png";
 import g1 from "@/assets/gallery-1.jpg";
