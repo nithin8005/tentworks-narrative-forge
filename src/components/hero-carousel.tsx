@@ -99,7 +99,7 @@ export function HeroCarousel() {
   };
 
   useEffect(() => {
-    if (paused || playingYoutube) return;
+    if (paused || playingYoutube || dragging) return;
 
     const tick = 50;
     const step = tick / AUTO_MS;
@@ -117,7 +117,7 @@ export function HeroCarousel() {
     }, tick);
 
     return () => window.clearInterval(id);
-  }, [index, paused, playingYoutube, total]);
+  }, [index, paused, playingYoutube, dragging, total]);
 
   const watchTrailer = () => {
     setPaused(true);
