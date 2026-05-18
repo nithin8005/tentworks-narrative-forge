@@ -73,6 +73,7 @@ export function HeroCarousel() {
   const [paused, setPaused] = useState(false);
   const [playingYoutube, setPlayingYoutube] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [dragging, setDragging] = useState(false);
 
   const slide = slides[index];
   const total = slides.length;
@@ -85,6 +86,17 @@ export function HeroCarousel() {
     },
     [total],
   );
+
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
+    setDragging(false);
+    const threshold = 60;
+    const { offset, velocity } = info;
+    if (offset.x < -threshold || velocity.x < -400) {
+      goTo(index + 1);
+    } else if (offset.x > threshold || velocity.x > 400) {
+      goTo(index - 1);
+    }
+  };
 
   useEffect(() => {
     if (paused || playingYoutube) return;
