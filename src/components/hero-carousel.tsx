@@ -226,7 +226,7 @@ export function HeroCarousel() {
                 ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {!playingYoutube && (
