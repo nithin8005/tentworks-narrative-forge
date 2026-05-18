@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Pause, Play } from "lucide-react";
+import { motion, type PanInfo } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import heroArt from "@/assets/becoming_pablo.png";
 import g1 from "@/assets/gallery-1.jpg";
@@ -72,6 +73,7 @@ export function HeroCarousel() {
   const [paused, setPaused] = useState(false);
   const [playingYoutube, setPlayingYoutube] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [dragging, setDragging] = useState(false);
 
   const slide = slides[index];
   const total = slides.length;
@@ -85,8 +87,19 @@ export function HeroCarousel() {
     [total],
   );
 
+  const handleDragEnd = (_: unknown, info: PanInfo) => {
+    setDragging(false);
+    const threshold = 60;
+    const { offset, velocity } = info;
+    if (offset.x < -threshold || velocity.x < -400) {
+      goTo(index + 1);
+    } else if (offset.x > threshold || velocity.x > 400) {
+      goTo(index - 1);
+    }
+  };
+
   useEffect(() => {
-    if (paused || playingYoutube) return;
+    if (paused || playingYoutube || dragging) return;
 
     const tick = 50;
     const step = tick / AUTO_MS;
@@ -104,7 +117,7 @@ export function HeroCarousel() {
     }, tick);
 
     return () => window.clearInterval(id);
-  }, [index, paused, playingYoutube, total]);
+  }, [index, paused, playingYoutube, dragging, total]);
 
   const watchTrailer = () => {
     setPaused(true);
@@ -134,6 +147,18 @@ export function HeroCarousel() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent" />
         </div>
       ))}
+
+      {!playingYoutube && (
+        <motion.div
+          className="absolute inset-0 z-[5] cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.18}
+          onDragStart={() => setDragging(true)}
+          onDragEnd={handleDragEnd}
+          aria-hidden="true"
+        />
+      )}
 
       {playingYoutube && (
         <div className="absolute inset-0 z-20 bg-black">
