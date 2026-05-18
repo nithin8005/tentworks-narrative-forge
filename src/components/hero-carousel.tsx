@@ -148,6 +148,18 @@ export function HeroCarousel() {
         </div>
       ))}
 
+      {!playingYoutube && (
+        <motion.div
+          className="absolute inset-0 z-[5] cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.18}
+          onDragStart={() => setDragging(true)}
+          onDragEnd={handleDragEnd}
+          aria-hidden="true"
+        />
+      )}
+
       {playingYoutube && (
         <div className="absolute inset-0 z-20 bg-black">
           <iframe
