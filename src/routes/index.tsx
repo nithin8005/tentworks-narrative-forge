@@ -5,7 +5,7 @@ import { PageShell } from "@/components/page-shell";
 import { Gallery } from "@/components/gallery";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import heroArt from "@/assets/hero-key-art.jpg";
+import heroArt from "@/assets/becoming_pablo.png";
 import { HeroCarousel } from "@/components/hero-carousel";
 
 const TITLE = "Tentworks Interactive — Story-Driven Strategy Games";
