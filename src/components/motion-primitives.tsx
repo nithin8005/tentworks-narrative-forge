@@ -1,5 +1,5 @@
 import { motion, type Variants, type HTMLMotionProps } from "framer-motion";
-import type { ReactNode, ElementType } from "react";
+import { useMemo, type ReactNode, type ElementType } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -38,7 +38,7 @@ export function FadeUp({
   as,
   ...rest
 }: FadeUpProps) {
-  const Comp = motion(as ?? "div");
+  const Comp = useMemo(() => motion(as ?? "div"), [as]);
   return (
     <Comp
       className={className}
@@ -68,7 +68,7 @@ export function StaggerGroup({
   stagger = 0.12,
   as,
 }: StaggerGroupProps) {
-  const Comp = motion(as ?? "div");
+  const Comp = useMemo(() => motion(as ?? "div"), [as]);
   return (
     <Comp
       className={className}
@@ -93,7 +93,7 @@ type StaggerItemProps = {
 } & Omit<HTMLMotionProps<"div">, "ref" | "variants">;
 
 export function StaggerItem({ children, className, y = 30, as, ...rest }: StaggerItemProps) {
-  const Comp = motion(as ?? "div");
+  const Comp = useMemo(() => motion(as ?? "div"), [as]);
   return (
     <Comp
       className={className}
