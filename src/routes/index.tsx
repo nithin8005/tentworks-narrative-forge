@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import heroArt from "@/assets/becoming_pablo.png";
 import { HeroCarousel } from "@/components/hero-carousel";
+import { BecomingPabloSection } from "@/components/becoming-pablo-section";
 
 const TITLE = "Tentworks Interactive — Story-Driven Strategy Games";
 const DESC = "Independent game studio crafting deep, narrative-rich strategy experiences. Makers of Becoming Pablo.";
@@ -32,6 +33,11 @@ function HomePage() {
   return (
     <PageShell>
       <Hero />
+
+  
+
+      <BecomingPabloSection showDemoBanner={false} />
+
       <Highlights />
       <FeaturedGame />
       <Gallery />
@@ -43,6 +49,8 @@ function HomePage() {
 
 function Hero() {
   return <HeroCarousel />;
+
+
 }
 
 function Highlights() {
@@ -97,7 +105,7 @@ function FeaturedGame() {
               <a href="https://store.steampowered.com/app/3145440/Becoming_Pablo/" target="_blank" rel="noreferrer">On Steam</a>
             </Button>
             <Button asChild variant="ghostBorder" size="lg">
-              <Link to="/games">Game details</Link>
+              <Link to="/games" hash="about">Game details</Link>
             </Button>
           </div>
         </ScrollReveal>
@@ -170,7 +178,7 @@ function CtaBand() {
         <ScrollReveal>
           <h2 className="font-display text-4xl uppercase tracking-wide sm:text-5xl">Be first to play.</h2>
           <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            Follow , join the Discord, and read our devlogs to shape the game alongside us.
+            Follow on Steam, join the Discord, and read our devlogs to shape the game alongside us.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild variant="hero" size="xl">

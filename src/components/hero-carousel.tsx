@@ -143,7 +143,7 @@ export function HeroCarousel() {
     }
   };
 
-  // Trackpad two-finger scroll (like Rockstar) — changes slides instead of scrolling the page
+  // Horizontal trackpad swipe only — vertical scroll always moves the page down/up
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
@@ -159,50 +159,36 @@ export function HeroCarousel() {
 
       const absX = Math.abs(e.deltaX);
       const absY = Math.abs(e.deltaY);
-      const isHorizontal = absX > absY && absX > 2;
 
-      const advanceFromWheel = (delta: number) => {
-        if (wheelLocked.current) return;
-
-        wheelAccum.current += delta;
-
-        if (wheelAccum.current >= WHEEL_THRESHOLD) {
-          wheelAccum.current = 0;
-          wheelLocked.current = true;
-          setPaused(true);
-          goTo(indexRef.current + 1);
-          window.setTimeout(() => {
-            wheelLocked.current = false;
-          }, WHEEL_COOLDOWN_MS);
-        } else if (wheelAccum.current <= -WHEEL_THRESHOLD) {
-          wheelAccum.current = 0;
-          wheelLocked.current = true;
-          setPaused(true);
-          goTo(indexRef.current - 1);
-          window.setTimeout(() => {
-            wheelLocked.current = false;
-          }, WHEEL_COOLDOWN_MS);
-        }
-      };
-
-      // Horizontal trackpad swipe: change slides only — never scroll the page sideways
-      if (isHorizontal) {
-        e.preventDefault();
-        advanceFromWheel(e.deltaX);
+      // Vertical scroll: never hijack — let the page scroll to the next section
+      if (absY >= absX) {
+        wheelAccum.current = 0;
         return;
       }
 
-      if (absY < 2) return;
-
-      const current = indexRef.current;
-      const atLast = current === total - 1;
-      const atFirst = current === 0;
-      const forward = e.deltaY > 0;
-
-      if ((atLast && forward) || (atFirst && !forward)) return;
+      if (absX < 2) return;
 
       e.preventDefault();
-      advanceFromWheel(e.deltaY);
+
+      if (wheelLocked.current) return;
+
+      wheelAccum.current += e.deltaX;
+
+      if (wheelAccum.current >= WHEEL_THRESHOLD) {
+        wheelAccum.current = 0;
+        wheelLocked.current = true;
+        goTo(indexRef.current + 1);
+        window.setTimeout(() => {
+          wheelLocked.current = false;
+        }, WHEEL_COOLDOWN_MS);
+      } else if (wheelAccum.current <= -WHEEL_THRESHOLD) {
+        wheelAccum.current = 0;
+        wheelLocked.current = true;
+        goTo(indexRef.current - 1);
+        window.setTimeout(() => {
+          wheelLocked.current = false;
+        }, WHEEL_COOLDOWN_MS);
+      }
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
@@ -210,7 +196,7 @@ export function HeroCarousel() {
   }, [goTo, playingYoutube, total]);
 
   useEffect(() => {
-    if (paused || playingYoutube || dragging) return;
+    if (paused || playingYoutube) return;
 
     const tick = 50;
     const step = tick / AUTO_MS;
@@ -228,7 +214,7 @@ export function HeroCarousel() {
     }, tick);
 
     return () => window.clearInterval(id);
-  }, [index, paused, playingYoutube, dragging, total]);
+  }, [index, paused, playingYoutube, total]);
 
   const watchTrailer = () => {
     setPaused(true);
@@ -242,6 +228,7 @@ export function HeroCarousel() {
 
   return (
     <section
+      id="intro"
       ref={sectionRef}
       className="relative min-h-[88vh] w-full max-w-full touch-pan-y overscroll-x-none overflow-x-hidden bg-black"
       aria-label="Featured gallery"

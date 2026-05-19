@@ -42,8 +42,12 @@ export function Gallery() {
           </h2>
         </div>
       </motion.div>
-
+      
+      {/* Gallery Grid */}
+      <div className="grid auto-rows-[minmax(0,1fr)] grid-cols-2 gap-3 md:grid-cols-4 md:gap-4"></div>
       <div className="grid auto-rows-[minmax(0,1fr)] grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+       
+
         {items.map((it, i) => (
           <motion.figure
             key={it.src}
