@@ -4,7 +4,7 @@ import g2 from "@/assets/gallery-2.jpg";
 import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
-import g6 from "@/assets/gallery-6.jpg";
+
 
 const items = [
   { src: g1, alt: "Neon-lit empire skyline", className: "md:col-span-2 md:row-span-2 aspect-square" },
@@ -12,7 +12,7 @@ const items = [
   { src: g3, alt: "Office, cash and revolver", className: "aspect-[3/4]" },
   { src: g4, alt: "Vintage street at golden hour", className: "md:col-span-2 aspect-[16/9]" },
   { src: g5, alt: "Conspiracy map room", className: "aspect-square" },
-  { src: g6, alt: "Helicopter over the jungle", className: "aspect-[4/3]" },
+ 
 ];
 
 const variants: Variants = {

@@ -10,9 +10,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import heroArt from "@/assets/becoming_pablo.png";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
+import g1 from "@/assets/gallery-13.jpg";
+import g2 from "@/assets/gallery-14.jpg";
+import g3 from "@/assets/gallery-16.jpg";
+import g4 from "@/assets/gallery-15.jpg"; 
 
 const STEAM_URL = "https://store.steampowered.com/app/3145440/Becoming_Pablo/";
 const TRAILER_HREF = "/#intro";
@@ -132,12 +133,7 @@ export function BecomingPabloSection({ showDemoBanner = true }: Props) {
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[var(--ember)]/25 to-[var(--blood)]/15 blur-2xl" />
-            <img
-              src={g2}
-              alt="Cartel operations and territory"
-              loading="lazy"
-              className="relative aspect-[4/3] w-full rounded-xl border border-border/60 object-cover"
-            />
+           
           </motion.div>
         </div>
       </section>
@@ -206,7 +202,7 @@ export function BecomingPabloSection({ showDemoBanner = true }: Props) {
             </h2>
           </ScrollReveal>
           <motion.div className="mt-10 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {[g1, g3, heroArt, g2].map((src, i) => (
+            {[g1, g3, g4, g2].map((src, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, scale: 0.96 }}
