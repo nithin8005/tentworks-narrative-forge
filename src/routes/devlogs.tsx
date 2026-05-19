@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
+import { FadeUp, StaggerGroup, StaggerItem } from "@/components/motion-primitives";
 
 const TITLE = "Devlogs — Tentworks Interactive";
 const DESC = "Behind-the-scenes devlogs from Tentworks Interactive: design, art, engineering, and the making of Becoming Pablo.";
@@ -26,17 +27,19 @@ function DevlogsPage() {
   return (
     <PageShell>
       <section className="mx-auto max-w-5xl px-4 pb-10 pt-20 sm:px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-primary">Devlogs</p>
-        <h1 className="mt-3 font-display text-5xl uppercase tracking-wide sm:text-6xl">From the workbench.</h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          We write monthly about what we're making, why it's hard, and what we're learning.
-        </p>
+        <FadeUp>
+          <p className="text-xs uppercase tracking-widest text-primary">Devlogs</p>
+          <h1 className="mt-3 font-display text-5xl uppercase tracking-wide sm:text-6xl">From the workbench.</h1>
+          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+            We write monthly about what we're making, why it's hard, and what we're learning.
+          </p>
+        </FadeUp>
       </section>
 
       <section className="mx-auto max-w-5xl px-4 pb-24 sm:px-6 lg:px-8">
-        <ul className="divide-y divide-border/60 border-y border-border/60">
+        <StaggerGroup as="ul" className="divide-y divide-border/60 border-y border-border/60">
           {posts.map((p) => (
-            <li key={p.title}>
+            <StaggerItem as="li" key={p.title}>
               <a href={p.href} target="_blank" rel="noreferrer" className="group flex flex-col gap-2 py-8 transition-colors hover:bg-card/30 sm:flex-row sm:items-baseline sm:gap-8">
                 <span className="w-32 shrink-0 text-xs uppercase tracking-widest text-muted-foreground">{p.date}</span>
                 <div className="flex-1">
@@ -45,9 +48,9 @@ function DevlogsPage() {
                 </div>
                 <ArrowUpRight className="hidden h-5 w-5 text-muted-foreground group-hover:text-primary sm:inline" />
               </a>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </StaggerGroup>
       </section>
     </PageShell>
   );

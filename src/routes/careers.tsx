@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, MapPin } from "lucide-react";
 import { PageShell } from "@/components/page-shell";
 import { Button } from "@/components/ui/button";
+import { FadeUp, StaggerGroup, StaggerItem } from "@/components/motion-primitives";
 
 const TITLE = "Careers — Tentworks Interactive";
 const DESC = "Join Tentworks Interactive. We're hiring across design, art, and engineering to build the next generation of narrative strategy games.";
@@ -29,19 +30,23 @@ function CareersPage() {
   return (
     <PageShell>
       <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
-        <p className="text-xs uppercase tracking-widest text-primary">Careers</p>
-        <h1 className="mt-3 font-display text-5xl uppercase tracking-wide sm:text-6xl">
-          Build worlds <span className="text-gradient-ember">with us.</span>
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          We're a small team that ships ambitious games. If that sounds like home, we'd love to hear from you.
-        </p>
+        <FadeUp>
+          <p className="text-xs uppercase tracking-widest text-primary">Careers</p>
+          <h1 className="mt-3 font-display text-5xl uppercase tracking-wide sm:text-6xl">
+            Build worlds <span className="text-gradient-ember">with us.</span>
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+            We're a small team that ships ambitious games. If that sounds like home, we'd love to hear from you.
+          </p>
+        </FadeUp>
 
         <div className="mt-12">
-          <h2 className="font-display text-2xl uppercase tracking-wide">Open roles</h2>
-          <ul className="mt-6 divide-y divide-border/60 border-y border-border/60">
+          <FadeUp>
+            <h2 className="font-display text-2xl uppercase tracking-wide">Open roles</h2>
+          </FadeUp>
+          <StaggerGroup as="ul" className="mt-6 divide-y divide-border/60 border-y border-border/60" stagger={0.08}>
             {roles.map((r) => (
-              <li key={r.title} className="group flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:justify-between">
+              <StaggerItem as="li" key={r.title} className="group flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h3 className="font-display text-xl uppercase tracking-wide group-hover:text-primary">{r.title}</h3>
                   <p className="mt-1 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
@@ -52,13 +57,15 @@ function CareersPage() {
                 <Button asChild variant="ghostBorder" size="sm">
                   <a href="mailto:careers@tentworks.io">Apply <ArrowUpRight className="ml-1 h-3 w-3" /></a>
                 </Button>
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
-          <p className="mt-8 text-sm text-muted-foreground">
-            Don't see your role? Send us a note at{" "}
-            <a className="text-primary hover:underline" href="mailto:careers@tentworks.io">careers@tentworks.io</a>.
-          </p>
+          </StaggerGroup>
+          <FadeUp>
+            <p className="mt-8 text-sm text-muted-foreground">
+              Don't see your role? Send us a note at{" "}
+              <a className="text-primary hover:underline" href="mailto:careers@tentworks.io">careers@tentworks.io</a>.
+            </p>
+          </FadeUp>
         </div>
       </section>
     </PageShell>
