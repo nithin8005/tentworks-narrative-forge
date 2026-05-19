@@ -14,7 +14,7 @@ import g1 from "@/assets/gallery-13.jpg";
 import g2 from "@/assets/gallery-14.jpg";
 import g3 from "@/assets/gallery-16.jpg";
 import g4 from "@/assets/gallery-15.jpg"; 
-
+import chooseYourRegion from "@/assets/choose-your-region.png";
 const STEAM_URL = "https://store.steampowered.com/app/3145440/Becoming_Pablo/";
 const TRAILER_HREF = "/#intro";
 
@@ -132,7 +132,14 @@ export function BecomingPabloSection({ showDemoBanner = true }: Props) {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[var(--ember)]/25 to-[var(--blood)]/15 blur-2xl" />
+           <div className="absolute -inset-4 rounded-2xl bg-gradient-to-br from-[var(--ember)]/25 to-[var(--blood)]/15 blur-2xl" />
+
+<img
+  src={chooseYourRegion}
+  alt="Choose Your Region"
+  loading="lazy"
+  className="relative w-full rounded-xl border border-border/60 object-cover"
+/>
            
           </motion.div>
         </div>
