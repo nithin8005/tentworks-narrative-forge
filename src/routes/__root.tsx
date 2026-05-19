@@ -79,6 +79,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Tentworks Interactive" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Tentworks Interactive — Story-Driven Strategy Games" },
+      { name: "twitter:title", content: "Tentworks Interactive — Story-Driven Strategy Games" },
+      { property: "og:description", content: "Independent game studio crafting deep, narrative-rich strategy experiences. Makers of Becoming Pablo." },
+      { name: "twitter:description", content: "Independent game studio crafting deep, narrative-rich strategy experiences. Makers of Becoming Pablo." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4961c7ef-7812-4e51-ab18-a282ff5c0426/id-preview-87a874c1--e38744a5-daad-444d-aae6-44f4b94b390d.lovable.app-1779098372529.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4961c7ef-7812-4e51-ab18-a282ff5c0426/id-preview-87a874c1--e38744a5-daad-444d-aae6-44f4b94b390d.lovable.app-1779098372529.png" },
     ],
     links: [
       {
